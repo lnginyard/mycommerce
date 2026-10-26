@@ -1,114 +1,67 @@
-# Full Stack Fashion Ecommerce Website
+# MyCommerce — Full-Stack Fashion E-Commerce Application
 
-A fullstack SPA fashion ecommerce website created with Vue and Django.
+A full-stack single-page e-commerce application built with a Django/Python backend and a Vue-based frontend. The codebase models common online-store workflows, including product catalogs, customer accounts, carts, orders, discounts, stock, and shipment information.
 
-## Overview
-This project is an advanced e-commerce platform specializing in fashion clothing. Designed with a robust backend using Django and a dynamic frontend with Vue.js, it aims to provide a seamless shopping experience. The application supports various functionalities such as managing products, user interactions, and order processing.
+## Highlights
 
-## Key Features
+The repository includes Django applications and models related to:
 
-### Product Management
-* Product Model: Central to the platform, the Product model encapsulates essential details about each fashion item.
-* Image and Video Models: These models link to the Product model, enabling the inclusion of multimedia content for detailed product presentations.
+- Products and product media
+- User profiles and saved addresses
+- Cart and order workflows
+- Product history and shipment records
+- Discounts and coupons
+- Stock management and reviews
+- API endpoints using Django REST Framework
+- A Vue frontend with routing and state-management dependencies
+- A Postman collection for API exploration
 
-### User Interactions
-* Wishlist and Like Models: These models, derived from the AbstractWishlist class, allow users to save and like their preferred products, enhancing user engagement and personalization.
+The presence of these modules indicates the project's intended scope; verify each workflow in a running instance before describing it as production-ready.
 
-### Order and Shipment
-* CustomerOrder and ProductHistory Models: The CustomerOrder model tracks customer purchases, while the ProductHistory model preserves the product's state at the time of order, ensuring accurate historical pricing data.
-* Shipment Model: This model manages the shipment details of orders, ensuring timely and accurate delivery tracking.
+## Technology
 
-### Discounts and Promotions
-* Discount Model: This model facilitates the creation of various discounts and coupons, providing customers with price reductions on selected products.
+- Python and Django
+- Django REST Framework
+- PostgreSQL support via Psycopg (database configuration must be checked locally)
+- Vue 3 / Vite and related frontend packages
+- JWT / authentication-related packages
+- Docker and Docker Compose files
+- Postman collection for API requests
 
-### User Management
-* UserProfile Model: Stores user-specific information such as telephone number and Stripe ID, essential for user authentication and payment processing.
-* Address Model: Allows users to save multiple billing addresses, simplifying the checkout process.
+## Setup notes
 
-### Cart and Stock Management
-* Cart Model: Tracks items added to the cart, supporting the checkout process.
-* Stock Model: Monitors the inventory status of products, ensuring stock availability is accurately reflected.
+This repository includes multiple frontend directories, notebooks, data files, and environment-specific configuration. Review the existing project settings and Docker configuration before choosing a run path.
 
-### Purpose and Benefits
-This documentation aims to provide a comprehensive guide for developers to understand and extend the application's functionality efficiently. By detailing the various models and their interactions, it ensures that future development and maintenance efforts are streamlined, supporting the application's scalability and robustness.
+1. Clone the repository and create a virtual environment.
+2. Install the Python dependencies using the dependency manager supported by the checked-in files.
+3. Configure environment variables and database settings using local, non-committed values.
+4. Install the dependencies for the intended frontend directory.
+5. Apply migrations, create a local development user, and load test products only using the project's documented import flow.
+6. Run the Django backend and the selected frontend using the commands appropriate to their current configuration.
 
-## How to test
+Because the repository contains several frontend folders and legacy setup notes, the exact commands and ports should be verified against the current branch before relying on them. Do not use production credentials or real customer data for local testing.
 
-First download the image folder on [Dropbox](https://www.dropbox.com/sh/hqll9tutdy7wji0/AACsJSeDAqyr-Oeic44OXSL9a?dl=0). Create a `project.ini` file with a `images_folder` variable under the default section and copy the path to its location. Open the `init.ipynb` and run all the cells. The final result should be a set of products created in your local database. You can then move to the __Getting tarted__ section.
+## API exploration
 
-## Getting started
+The repository includes [Commerce.postman_collection.json](Commerce.postman_collection.json). Import it into Postman and update the base URL and authentication variables for your local environment before sending requests.
 
-Run `python manage.py migrate` then move to `./frontend` and run `npm install`. To sync Vue's staticfiles with the main Django application run `npm build` then `python manage.py collectstatic.`
+## Portfolio review checklist
 
-You can finally do `npm run serve` and `python manage.py runserver`. Your website should be running under `http://17.0.0.1:8000`.
+Before submitting this repository to employers:
 
-### Features
+- Confirm a clean install from a fresh clone.
+- Verify migrations and database setup.
+- Exercise authentication, cart, order, stock, and discount workflows.
+- Run the frontend build and any available tests.
+- Remove or exclude generated/static/media data that is not needed for a source review.
+- Document the intended frontend, API base URL, and database engine.
+- Add screenshots or a short walkthrough using synthetic data.
+- Confirm that secrets and personal/customer information are not committed.
 
-This project comes with a full translation for spanish, english and french, with scripts for quick implementation with Google, Facebook and Microsoft Analytics and finally full API endpoints.
+## Project status
 
-## Dependencies
+This is a substantial learning/project codebase, but the README and setup paths need validation before it should be described as a production-ready commerce system. It is a useful candidate for demonstrating full-stack concepts once a fresh setup and core user journeys have been tested.
 
-### Django
+## License
 
-* Pandas
-* Matplotlib
-* Django Rest Framework
-* Python 3
-* Django Extensions
-* Django Cors Headers
-* Gunicorn
-* Stripe
-* Django ImageKit
-* Pillow
-* Django Axes
-* Boto3/Django storages
-* Django Debug Toolbar
-* Django Redis
-* Python Dotenv
-* Tablib
-* Django Import Export
-* Psycopg
-* Unidecode
-* Spacy
-* Numpy
-* JWT
-* Django Allauth
-* Django CKEditor 5
-* DRF Spectacular
-* Mardown
-
-### Vue Project
-
-* Vue 3 (Vite)
-* @date-IO/dayjs
-* @mdi-font
-* @vueuse/core
-* @vueuse/integrations
-* Font awesome Icon
-* Autoprefixer
-* Font Web Loader
-* Day JS
-* Axios
-* Bootstrap
-* Lodash
-* Pinia
-* Unhead/Unhead addons/Unhead schema-org
-* Universal Cookie
-* MDB UI Kit
-* Eslint/Eslint config prettier
-* Postcss
-* Vite/Vitest
-* Vue Session Storage
-* Vue Local Storage
-* Vue Image Zoomer
-* Vue Analytics
-* Material Design Icons (@mdi/fonts)
-* Vue Country Flag
-* Vue I18n
-* Vue Router 4
-* Vuetify
-* ESLint Plugin Vue
-
-## Testing
-
-To test the project, run `python manage.py` and create a Django user account `python manage.py createsuperuser`. Then enter the admin and use import to load the `products.csv` file. This should load test products in your database. Once done, run `npm run dev` in `/frontend_store/` folder to start the frontend.
+See [LICENSE](LICENSE).
